@@ -18,9 +18,9 @@ int alterado =0;
 
 void carregarContatos(){
     FILE *file=fopen(ARQUIVO,"r");
-    if (!file) return;
+    if(!file) return;
 
-    while (fscanf(file, " %127[^,],%14[^\n]\n", agenda[totalContatos].nome, agenda[totalContatos].telefone) == 2) {
+    while(fscanf(file, " %127[^,],%14[^\n]\n", agenda[totalContatos].nome, agenda[totalContatos].telefone) == 2) {
         totalContatos++;
         if (totalContatos>=MAX_CONTATOS) 
         break;
@@ -30,11 +30,11 @@ void carregarContatos(){
 
 void salvarContatos(){
     FILE *file=fopen(ARQUIVO,"w");
-    if (!file){
+    if(!file){
         printf("erro ao salvar\n");
         return;
     }
-    for (int i=0; i<totalContatos;i++){
+    for(int i=0; i<totalContatos;i++){
         fprintf(file,"%s,%s\n", agenda[i].nome, agenda[i].telefone);
     }
     fclose(file);
@@ -43,7 +43,7 @@ void salvarContatos(){
 }
 
 void adicionarContato(){
-    if (totalContatos>=MAX_CONTATOS){
+    if(totalContatos>=MAX_CONTATOS){
         printf("Agenda cheia\n");
         return;
     }
@@ -56,12 +56,12 @@ void adicionarContato(){
 }
 
 void imprimirAgenda(){
-    if (totalContatos==0){
+    if(totalContatos==0){
         printf("Agenda vazia\n");
         return;
     }
     printf("Contatos na Agenda:\n");
-    for (int i=0; i<totalContatos;i++){
+    for(int i=0; i<totalContatos;i++){
         printf("%d %s - %s\n\n", i+1, agenda[i].nome, agenda[i].telefone);
     }
 }
@@ -70,9 +70,9 @@ void deletarContato(){
     char nome[MAX_NOME];
     printf("Nome a deletar: ");
     scanf(" %[^\n]", nome);
-    for (int i=0; i<totalContatos;i++) {
-        if (strcmp(agenda[i].nome, nome)==0){
-            for (int j=i; j<totalContatos-1; j++){
+    for(int i=0; i<totalContatos;i++) {
+        if(strcmp(agenda[i].nome, nome)==0){
+            for(int j=i; j<totalContatos-1; j++){
                 agenda[j]=agenda[j+1];
             }
             totalContatos--;
@@ -88,7 +88,7 @@ int main(){
     int opcao;
     carregarContatos();
 
-    do {
+    do{
         printf("1 - adicionar novo contato\n");
         printf("2 - imprimir agenda\n");
         printf("3 - deletar contato\n");
@@ -96,7 +96,7 @@ int main(){
         printf("5 - sair\n");
         scanf("%d",&opcao);
 
-        switch (opcao){
+        switch(opcao){
             case 1:
                 adicionarContato();
                 break;
@@ -110,7 +110,7 @@ int main(){
                 salvarContatos();
                 break;
             case 5:
-                if (alterado){
+                if(alterado){
                     printf("deseja salvar suas alterações? (s/n): ");
                     char resposta;
                     scanf(" %c",&resposta);
@@ -121,6 +121,6 @@ int main(){
                 printf("Saindo\n");
                 break;
         }
-    } while (opcao!=5);
+    }while(opcao!=5);
     return 0;
 }
