@@ -13,8 +13,8 @@ typedef struct {
 } Contato;
 
 Contato agenda[MAX_CONTATOS];
-int totalContatos = 0;
-int alterado = 0;
+int totalContatos =0;
+int alterado =0;
 
 void carregarContatos(){
     FILE *file=fopen(ARQUIVO,"r");
