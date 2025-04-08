@@ -13,8 +13,8 @@ typedef struct {
 } Contato;
 //Aqui temos um vetor e as variaveis
 Contato agenda[MAX_CONTATOS];
-int totalContatos =0;
-int alterado =0;
+int totalContatos = 0;
+int alterado = 0;
 //Aqui uma fução para carregar os contatos do arquivo
 void carregarContatos(){
     FILE *file=fopen(ARQUIVO,"r");
