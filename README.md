@@ -12,6 +12,6 @@
 - Structs
 - Vetores
 - Manipulação de strings
-- Leitura e escrita de arquivos (`fopen`, `fprintf`, `fscanf`)
+- Leitura e escrita de arquivos com (`fopen`, `fprintf`, `fscanf`)
 - Laços e condicionais
 - Funções com escopo
